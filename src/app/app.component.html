@@ -1,3 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<div class="col-md-6 col-md-offset-3">
+  <h2>Login</h2>
+  <form name="loginForm" (ngSubmit)="userformSubmit()" #form="ngForm" novalidate>
+      <div class="form-group">
+        <label for="username">User Name :</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="user.username" #username="ngModel" required/>
+        <div *ngIf="form.submitted && !username.valid" class="help-bock">User Name is Required </div> 
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel"  required/>
+        <div *ngIf="form.submitted && !password.valid" class="help-block">Password is required</div>
+      </div>
+      <div class="form-class">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+      <p>output : {{outputData}}</p>
+  </form>
+</div>
